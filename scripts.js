@@ -1,3 +1,12 @@
+/******* STATE *******/
+
+const state = {
+    imageNumber: 0,
+    currPictureSubject: null,
+    correctGuesses: 0,
+    wrongGuesses: 0
+}
+
 /******* HTML GENERATION FUNCTIONS *******/
 
 function renderInitialContainers() {
@@ -17,15 +26,20 @@ function renderInitialContainers() {
 
 // need to add an index parameter so we can keep loading new pictures after the click handler is triggered
 async function renderImage(images) {
+    console.log(state.imageNumber);
     imageSet = await images;
+    state.currPictureSubject = imageSet[state.imageNumber].type;
+    console.log(state.currPictureSubject)
     const main = document.getElementById('img-div');
-    main.innerHTML = `<img src='${imageSet[0].imageURL}' alt='${imageSet[0].type}'>`;
+    main.innerHTML = `<img src='${imageSet[state.imageNumber].imageURL}' alt='${imageSet[state.imageNumber].type}'>`;
+    state.imageNumber++;
 }
 
 /******* EVENT LISTENER FUNCTIONS *******/
 
 function clickHandler(imageSubject) {
     console.log(imageSubject);
+    imageSubject === state.currPictureSubject ? correctClick() : wrongClick();
 }
 
 /******* API CALL FUNCTIONS *******/
@@ -73,6 +87,18 @@ const createImageSet = async function() {
     console.log(imageSet)
     imageSet.forEach(item => console.log(item));
     return imageSet;
+}
+
+/******* STRUCTURAL FUNCTIONS *******/
+
+function correctClick() {
+    state.correctGuesses += 1;
+    console.log(`Correct guesses: ${state.correctGuesses}`);
+}
+
+function wrongClick() {
+    state.wrongGuesses += 1;
+    console.log(`Wrong guesses: ${state.wrongGuesses}`);
 }
 
 /******* INITIALIZATION FUNCTION *******/
