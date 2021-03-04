@@ -1,14 +1,29 @@
 /******* HTML GENERATION FUNCTIONS *******/
 
-const body = document.getElementById('body');
-
 function renderInitialContainers() {
+    const body = document.getElementById('body');
     body.insertAdjacentHTML('afterbegin', `<header id='header'></header>
-                                           <main id='main'></main>
+                                           <main id='main'>
+                                                <div id='img-div'></div>
+                                                <div id='buttons-div'>
+                                                    <button id='dog-button'>Dog</button>
+                                                    <button id='cat-button'>Cat</button>
+                                                    <button id='pizza-button'>Pizza</button>
+                                                    <button id='other-button'>Other</button>
+                                                </div>
+                                           </main>
                                            <footer id='footer'></footer>`);
 }
 
+async function renderImage(images) {
+    imageSet = await images;
+    const main = document.getElementById('img-div');
+    main.innerHTML = `<img src='${imageSet[0].imageURL}'>`;
+}
+
 /******* EVENT LISTENER FUNCTIONS *******/
+
+
 
 /******* API CALL FUNCTIONS *******/
 
@@ -41,7 +56,7 @@ const formatCatImage = catData => ({'type': 'cat', 'imageURL': catData.file});
 
 const formatPizzaImage = pizzaData => ({'type': 'pizza', 'imageURL': pizzaData.image});
 
-async function createImageSet() {
+const createImageSet = async function() {
     let imageSet= [];
     for (let i=0; i<2; i++) {
         imageSet.push(await getDogImage());
@@ -61,7 +76,7 @@ async function createImageSet() {
 
 function initialize() {
     renderInitialContainers();
-    createImageSet();
+    renderImage(createImageSet());
 }
 
 initialize();
