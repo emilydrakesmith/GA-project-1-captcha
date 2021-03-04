@@ -2,28 +2,31 @@
 
 function renderInitialContainers() {
     const body = document.getElementById('body');
-    body.insertAdjacentHTML('afterbegin', `<header id='header'></header>
-                                           <main id='main'>
-                                                <div id='img-div'></div>
-                                                <div id='buttons-div'>
-                                                    <button id='dog-button'>Dog</button>
-                                                    <button id='cat-button'>Cat</button>
-                                                    <button id='pizza-button'>Pizza</button>
-                                                    <button id='other-button'>Other</button>
-                                                </div>
-                                           </main>
-                                           <footer id='footer'></footer>`);
+    body.innerHTML =   `<header id='header'></header>
+                            <main id='main'>
+                                <div id='img-div'></div>
+                                <div id='buttons-div'>
+                                    <button id='dog-button' onclick='clickHandler("dog")'>Dog</button>
+                                    <button id='cat-button' onclick='clickHandler("cat")'>Cat</button>
+                                    <button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>
+                                    <button id='other-button' onclick='clickHandler("other")'>Other</button>
+                                </div>
+                            </main>
+                        <footer id='footer'></footer>`;
 }
 
+// need to add an index parameter so we can keep loading new pictures after the click handler is triggered
 async function renderImage(images) {
     imageSet = await images;
     const main = document.getElementById('img-div');
-    main.innerHTML = `<img src='${imageSet[0].imageURL}'>`;
+    main.innerHTML = `<img src='${imageSet[0].imageURL}' alt='${imageSet[0].type}'>`;
 }
 
 /******* EVENT LISTENER FUNCTIONS *******/
 
-
+function clickHandler(imageSubject) {
+    console.log(imageSubject);
+}
 
 /******* API CALL FUNCTIONS *******/
 
