@@ -1,7 +1,8 @@
 /******* STATE *******/
 
 const state = {
-    imageNumber: 0,
+    imageSet: [],
+    imageNumber: 1,
     currPictureSubject: null,
     correctGuesses: 0,
     wrongGuesses: 0
@@ -28,10 +29,10 @@ function renderInitialContainers() {
 async function renderImage(images) {
     console.log(state.imageNumber);
     imageSet = await images;
-    state.currPictureSubject = imageSet[state.imageNumber].type;
+    state.currPictureSubject = imageSet[state.imageNumber].imageType;
     console.log(state.currPictureSubject)
     const main = document.getElementById('img-div');
-    main.innerHTML = `<img src='${imageSet[state.imageNumber].imageURL}' alt='${imageSet[state.imageNumber].type}'>`;
+    main.innerHTML = `<img src='${imageSet[state.imageNumber].imageURL}' alt='${imageSet[state.imageNumber].imageType}'>`;
     state.imageNumber++;
 }
 
@@ -67,26 +68,27 @@ function getPizzaImage() {
 
 /******* IMAGE-OBJECT FORMATTING FUNCTIONS *******/
 
-const formatDogImage = dogData => ({'type': 'dog', 'imageURL': dogData.message});
+const formatDogImage = dogData => ({'imageType': 'dog', 'imageURL': dogData.message});
 
-const formatCatImage = catData => ({'type': 'cat', 'imageURL': catData.file});
+const formatCatImage = catData => ({'imageType': 'cat', 'imageURL': catData.file});
 
-const formatPizzaImage = pizzaData => ({'type': 'pizza', 'imageURL': pizzaData.image});
+const formatPizzaImage = pizzaData => ({'imageType': 'pizza', 'imageURL': pizzaData.image});
 
-const createImageSet = async function() {
+const createImageSet = async function() {                           // 'async' is necessary for the 'await' instruction
     let imageSet= [];
-    for (let i=0; i<2; i++) {
+    for (let i=0; i<2; i++) {                                       // trigger API calls with waits
         imageSet.push(await getDogImage());
         imageSet.push(await getCatImage());
         imageSet.push(await getPizzaImage());
     }
-    for (let i=imageSet.length-1; i>0; i--) {
+    for (let i=imageSet.length-1; i>0; i--) {                       //randomize sequence of image-objects in array
         const j = Math.floor(Math.random() * (i+1));
         [imageSet[i], imageSet[j]] = [imageSet[j], imageSet[i]];
     }
     console.log(imageSet)
     imageSet.forEach(item => console.log(item));
-    return imageSet;
+    state.imageSet = imageSet;
+    renderImage(state.imageSet);
 }
 
 /******* STRUCTURAL FUNCTIONS *******/
@@ -94,18 +96,24 @@ const createImageSet = async function() {
 function correctClick() {
     state.correctGuesses += 1;
     console.log(`Correct guesses: ${state.correctGuesses}`);
+    state.imageNumber === state.imageSet.length ? turingTest() : renderImage(state.imageSet);
 }
 
 function wrongClick() {
     state.wrongGuesses += 1;
     console.log(`Wrong guesses: ${state.wrongGuesses}`);
+    state.imageNumber === state.imageSet.length ? turingTest() : renderImage(state.imageSet);
+}
+
+function turingTest() {
+    console.log('jocoma fe na ne')
 }
 
 /******* INITIALIZATION FUNCTION *******/
 
 function initialize() {
     renderInitialContainers();
-    renderImage(createImageSet());
+    createImageSet();
 }
 
 initialize();
