@@ -2,7 +2,8 @@
 
 const state = {
     imageSet: [],
-    imageNumber: 1,
+    imageNumber: 0,
+    turingThreshold: 5,           // value + 1 must be a number evenly divisible by the number of APIs queried
     currPictureSubject: null,
     correctGuesses: 0,
     wrongGuesses: 0
@@ -76,7 +77,7 @@ const formatPizzaImage = pizzaData => ({'imageType': 'pizza', 'imageURL': pizzaD
 
 const createImageSet = async function() {                           // 'async' is necessary for the 'await' instruction
     let imageSet= [];
-    for (let i=0; i<2; i++) {                                       // trigger API calls with waits
+    for (let i=0; i<(state.turingThreshold+1)/3; i++) {                                       // trigger API calls with waits
         imageSet.push(await getDogImage());
         imageSet.push(await getCatImage());
         imageSet.push(await getPizzaImage());
@@ -106,7 +107,11 @@ function wrongClick() {
 }
 
 function turingTest() {
-    console.log('jocoma fe na ne')
+    console.log('jocomo fe na ne');
+    const human = 'You have confirmed you are a human.';
+    const computer = "You are a computer.<br>Tell your developer it's ok, no one's perfect.";
+    const outcome = state.correctGuesses >= 5 ? human : computer;
+    document.getElementById('main').innerHTML = outcome;
 }
 
 /******* INITIALIZATION FUNCTION *******/
