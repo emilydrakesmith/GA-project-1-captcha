@@ -12,15 +12,15 @@ const state = {
 function renderInitialContainers() {
     const body = document.getElementById('body');
     body.innerHTML =   `<header id='header'></header>
-                            <main id='main'>
-                                <div id='img-div'></div>
-                                <div id='buttons-div'>
-                                    <button id='dog-button' onclick='clickHandler("dog")'>Dog</button>
-                                    <button id='cat-button' onclick='clickHandler("cat")'>Cat</button>
-                                    <button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>
-                                    <button id='other-button' onclick='clickHandler("other")'>Other</button>
-                                </div>
-                            </main>
+                        <main id='main'>
+                            <div id='img-div'></div>
+                            <div id='buttons-div'>
+                                <button id='dog-button' onclick='clickHandler("dog")'>Dog</button>
+                                <button id='cat-button' onclick='clickHandler("cat")'>Cat</button>
+                                <button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>
+                                <button id='other-button' onclick='clickHandler("other")'>Other</button>
+                            </div>
+                        </main>
                         <footer id='footer'></footer>`;
 }
 
