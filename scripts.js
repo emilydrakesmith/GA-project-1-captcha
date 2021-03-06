@@ -15,10 +15,16 @@ function renderInitialContainers() {
     const body = document.getElementById('body');
     body.innerHTML =   `<header id='header'></header>
                         <main id='main'>
+                            <div id='instructions'>
+                                <p>This is a check to make sure you're human.</p>
+                                <p>Please click a button to identify the picture.</p>
+                            </div>
                             <div id='img-div'></div>
-                            <div id='buttons-div'>
+                            <div class='buttons-div'>
                                 <button id='dog-button' onclick='clickHandler("dog")'>Dog</button>
                                 <button id='cat-button' onclick='clickHandler("cat")'>Cat</button>
+                            </div>
+                            <div class='buttons-div'>
                                 <button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>
                                 <button id='other-button' onclick='clickHandler("other")'>Other</button>
                             </div>
@@ -97,18 +103,20 @@ const createImageSet = async function() {                           // 'async' i
 function correctClick() {
     state.correctGuesses += 1;
     console.log(`Correct guesses: ${state.correctGuesses}`);
-    state.imageNumber === state.imageSet.length ? turingTest() : renderImage(state.imageSet);
+    console.log(`state.imageNumber: ${state.imageNumber} and state.turingThreshold.length ${state.turingThreshold}`);
+    state.imageNumber === state.turingThreshold + 1 ? turingTest() : renderImage(state.imageSet);
 }
 
 function wrongClick() {
     state.wrongGuesses += 1;
     console.log(`Wrong guesses: ${state.wrongGuesses}`);
-    state.imageNumber === state.imageSet.length ? turingTest() : renderImage(state.imageSet);
+    console.log(`state.imageNumber: ${state.imageNumber} and state.turingThreshold.length ${state.turingThreshold}`);
+    state.imageNumber === state.turingThreshold + 1 ? turingTest() : renderImage(state.imageSet);
 }
 
 function turingTest() {
     console.log('jocomo fe na ne');
-    const human = 'You have confirmed you are a human.';
+    const human = 'You have confirmed you are a human. If you are not a human, congratulate your developer.';
     const computer = "You are a computer.<br>Tell your developer it's ok, no one's perfect.";
     const outcome = state.correctGuesses >= 5 ? human : computer;
     document.getElementById('main').innerHTML = outcome;
