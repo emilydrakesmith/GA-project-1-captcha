@@ -31,7 +31,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **0.1.1** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **0.1.2** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -62,7 +62,7 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * App is applying logic to determine if button clicks are correct or incorrect.
 
 #### v 0.0.7 | 04 March 2021 | commit 5abc99a1bada7a96ac6a3378f2aaee84a3d1da68
-* No significant changes.  I did a commit in the wrong directory while working on a different project.
+* No significant changes.  I accidentally made a commit in this directory while working on a different project. Oops.
 
 #### v 0.0.8 | 05 March 2021 | commit 2ee7208104c15c45f4072d72af7edf4e8ac029d2
 * App now loops through every picture in the array.
@@ -72,13 +72,16 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * App displays results of Turing test once all pictures have been looped.
 * Basic functionality is complete (needs additional work before initial deployment).
 
-#### v 0.1.1 | 05 March 2021 | commit -- | Current Version
+#### v 0.1.1 | 05 March 2021 | commit 420e30d9897a58d25ffcbebbf93b23f91ccbaf10
 * Built out `README.md`.
 * Increased the number of API calls made by the app to increase picture set randomization.
 * Added custom fonts.
 * Worked on object centering and spacing.
 * Added an instructions box.
 * Implemented a color scheme.
+
+#### v 0.1.2 | 05 March 2021 | commit -- | Current Version
+* Buttons highlight with outline on mouse hover.
 
 # Tech Framework
 
