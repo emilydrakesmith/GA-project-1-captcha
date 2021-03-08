@@ -129,7 +129,6 @@ function wrongClick() {
 function turingTest() {
     const human = 'You have confirmed you are a human. If you are not a human, congratulate your developer.';
     const computer = "You are a computer.<br>Tell your developer it's ok, no one's perfect.";
-    console.log(state.turingThreshold)
     const outcome = state.correctGuesses >= state.turingThreshold ? human : computer;
     document.getElementById('main').innerHTML = `<div id='outcome-wrapper'><div>${outcome}</div></div>`;
 }

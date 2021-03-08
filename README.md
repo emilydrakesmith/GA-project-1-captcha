@@ -38,7 +38,7 @@ The **1.0.2** version of this app is currently uploaded.  In cases where I updat
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
 * Z: increases in this number represent changes that are relatively minor but still warrant a new commit
 
-Version 0.1.0 is the first version with the full range of intended functions successfully implemented.  Version 1.0.0 is the first to be both full functional and styled.
+Version 0.1.0 is the first version with the full range of intended functions successfully implemented.  Version 1.0.0 is the first to be both full functional and styled with optimized coding.
 
 #### v 0.0.1 | 04 March 2021 | commit c2fd1e8b40cc31e1aa6d16be0b3614aa4cd97e9b | Initial Commit
 * Set up boilerplate HTML in `index.html`.
@@ -98,9 +98,12 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 #### v 1.0.1 | 07 March 2021 | commit 37c7a67bb17632ba1ad0a83bf29f2f280aab2332
 * Fixed mis-labeled images in `README.md` file.
 
-#### v 1.0.2 | 08 March 2021 | commit -- | Current Version
+#### v 1.0.2 | 08 March 2021 | commit a92d5329c15ac8df16f54878e577dabbc9acea95
 * Refactored `getImages()` to run with a `do...while` loop instead of a `for` loop. The `while` condition runs API queries a number of times relative to `state.turingThreshold`.  This will increase stability by reducing the chance someone else forks and uses the app and changes values to produce an insufficient number of images compared to `state.turingThreshold` for the app to work.
 * Refactored user-interactable elements (all `<a>` elements and hyperlinks) out of template HTML and into variables.  Variables are then injected into HTML template literals.
+
+#### v 1.0.2 | 08 March 2021 | commit -- | Current Version
+* Removed `console.log()` statements and other testing/validation code.
 
 # Tech Framework
 
