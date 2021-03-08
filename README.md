@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.0** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.1** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -82,9 +82,9 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Implemented a color scheme.
 
 #### v 0.1.2 | 05 March 2021 | commit 927a7017b3ed04e46d31a08f567044a36157225c
-* Buttons highlight with outline on mouse hover.
+* Buttons highlight with an outline on mouse hover.
 
-#### v 1.0.0 | 07 March 2021 | commit -- | Current Version
+#### v 1.0.0 | 07 March 2021 | commit eb4a7ae64cb8f456e367eaf7c55dbad40a29075c
 * App is styled, optimized, functional, and ready for deployment.
 * Fixed vertical spacing issues.
 * Added `<header>` and `<footer>` sections.
@@ -93,7 +93,10 @@ Version 0.1.0 is the first version with the full range of intended functions suc
   * Reduced functions to one-liners where feasible.
   * Functions only run asynchronously when necessary.
 * Added mobile-device responsiveness.
-* Added screenshots of desktop and mobile product variants as well as wireframe to `README.md`.
+* Added screenshots of product variants and wireframe mockup to `README.md` file.
+
+#### v 1.0.1 | 07 March 2021 | commit -- | Current Version
+* Fixed mis-labeled images in `README.md` file.
 
 # Tech Framework
 
@@ -258,7 +261,7 @@ How you structure your presentation is ultimately up to you as long as you cover
 
 ![Desktop Variant Screenshot](images/desktop-screenshot.png)
 
-### Desktop Variant
+### Mobile Variant
 
 ![Mobile Variant Screenshot](images/mobile-screenshot.png)
 
