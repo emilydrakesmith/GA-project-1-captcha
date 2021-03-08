@@ -13,7 +13,12 @@ const state = {
 
 function renderInitialContainers() {
     const body = document.getElementById('body');
-    const githubLink = ``;
+    const dogButton = `<button id='dog-button' onclick='clickHandler("dog")'>Dog</button>`;
+    const catButton = `<button id='cat-button' onclick='clickHandler("cat")'>Cat</button>`;
+    const pizzaButton = `<button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>`;
+    const otherButton = `<button id='other-button' onclick='clickHandler("other")'>Other</button>`;
+    const githubLink = `<a href='https://github.com/mhsmith321/GA-project-1-captcha' target='_blank'>GitHub Repo</a>`;
+    const developerWebpageLink = `<a href='https://martysmith.tech/' target='_blank'>About the Developer</a>`;
     body.innerHTML =   `<header id='header'>
                             <span class='mobile-hide'>User Verification System</span>
                             <span class='desktop-hide'>User Verification</span>
@@ -25,22 +30,18 @@ function renderInitialContainers() {
                             </div>
                             <div id='img-div'></div>
                             <div class='buttons-div'>
-                                <button id='dog-button' onclick='clickHandler("dog")'>Dog</button>
-                                <button id='cat-button' onclick='clickHandler("cat")'>Cat</button>
+                                ${dogButton}
+                                ${catButton}
                             </div>
                             <div id='last-main-child' class='buttons-div'>
-                                <button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>
-                                <button id='other-button' onclick='clickHandler("other")'>Other</button>
+                                ${pizzaButton}
+                                ${otherButton}
                             </div>
                         </main>
                         <footer id='footer'>
                             <div>© Marty Smith</div>
                             <div>
-                                <span class='footer-link'>
-                                    <a href='https://github.com/mhsmith321/GA-project-1-captcha' target='_blank'>GitHub Repo</a>
-                                </span> | <span class='footer-link'>
-                                    <a href='https://martysmith.tech/' target='_blank'>About the Developer</a>
-                                </span>
+                                <span class='footer-link'>${githubLink}</span> | <span class='footer-link'>${developerWebpageLink}</span>
                             </div>
                         </footer>`;
 }
@@ -91,11 +92,11 @@ const formatPizzaImage = pizzaData => ({'imageType': 'pizza', 'imageURL': pizzaD
 
 const getImages = async function() {                           // 'async' is necessary for the 'await' instruction
     let returnedImages= [];
-    for (let i=0; i<(state.turingThreshold+1)/3; i++) {               // trigger API calls with waits
+    do {
         returnedImages.push(await getDogImage());
         returnedImages.push(await getCatImage());
         returnedImages.push(await getPizzaImage());
-    }
+    } while (returnedImages.length<state.turingThreshold*2)
     return returnedImages;
 }
 

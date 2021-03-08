@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.1** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.2** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -95,8 +95,12 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Added mobile-device responsiveness.
 * Added screenshots of product variants and wireframe mockup to `README.md` file.
 
-#### v 1.0.1 | 07 March 2021 | commit -- | Current Version
+#### v 1.0.1 | 07 March 2021 | commit 37c7a67bb17632ba1ad0a83bf29f2f280aab2332
 * Fixed mis-labeled images in `README.md` file.
+
+#### v 1.0.2 | 08 March 2021 | commit -- | Current Version
+* Refactored `getImages()` to run with a `do...while` loop instead of a `for` loop. The `while` condition runs API queries a number of times relative to `state.turingThreshold`.  This will increase stability by reducing the chance someone else forks and uses the app and changes values to produce an insufficient number of images compared to `state.turingThreshold` for the app to work.
+* Refactored user-interactable elements (all `<a>` elements and hyperlinks) out of template HTML and into variables.  Variables are then injected into HTML template literals.
 
 # Tech Framework
 
@@ -129,8 +133,6 @@ Pizza images were supplied by the [Foodish API](https://github.com/surhud004/Foo
 
 # Future Plans
 
-* Add `<header>` and `<footer>` elements.
-
 * Refactor the code to exist entirely within JSON to increase modularity.
 
 # Contribute
@@ -152,6 +154,8 @@ If you'd like to learn more about the developer, please visit [my website](https
 * I found the font [Poppins](https://fonts.google.com/specimen/Poppins) through [Google Fonts](https://fonts.google.com/).  It was created by [Jonny Pinhorn](https://github.com/jonpinhorn) and the [Indian Type Foundry](https://www.indiantypefoundry.com/) and made available for use through the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
 * The color palette was developed with the help of [Coolors.co](https://coolors.co/) and tested for accessibility with [Color Safe](http://colorsafe.co/).
+
+* I used [Whimsical](https://whimsical.com/wireframes) to generate the wireframe images seen in *Appendix B: Product Screenshots & Images*.
 
 # Appendices
 
@@ -255,7 +259,7 @@ How you structure your presentation is ultimately up to you as long as you cover
 
 * Write **DRY (Don’t Repeat Yourself)** code. Check for repeating code and refactor into functions that accept arguments.
 
-## Appendix B: Product Screenshots
+## Appendix B: Product Screenshots & Images
 
 ### Desktop Variant
 
