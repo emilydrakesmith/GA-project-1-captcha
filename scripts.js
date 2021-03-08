@@ -13,7 +13,11 @@ const state = {
 
 function renderInitialContainers() {
     const body = document.getElementById('body');
-    body.innerHTML =   `<header id='header'></header>
+    const githubLink = ``;
+    body.innerHTML =   `<header id='header'>
+                            <span class='mobile-hide'>User Verification System</span>
+                            <span class='desktop-hide'>User Verification</span>
+                        </header>
                         <main id='main'>
                             <div id='instructions'>
                                 <p>This is a check to make sure you're human.</p>
@@ -24,31 +28,35 @@ function renderInitialContainers() {
                                 <button id='dog-button' onclick='clickHandler("dog")'>Dog</button>
                                 <button id='cat-button' onclick='clickHandler("cat")'>Cat</button>
                             </div>
-                            <div class='buttons-div'>
+                            <div id='last-main-child' class='buttons-div'>
                                 <button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>
                                 <button id='other-button' onclick='clickHandler("other")'>Other</button>
                             </div>
                         </main>
-                        <footer id='footer'></footer>`;
+                        <footer id='footer'>
+                            <div>© Marty Smith</div>
+                            <div>
+                                <span class='footer-link'>
+                                    <a href='https://github.com/mhsmith321/GA-project-1-captcha' target='_blank'>GitHub Repo</a>
+                                </span> | <span class='footer-link'>
+                                    <a href='https://martysmith.tech/' target='_blank'>About the Developer</a>
+                                </span>
+                            </div>
+                        </footer>`;
 }
 
-// need to add an index parameter so we can keep loading new pictures after the click handler is triggered
 async function renderImage(images) {
-    console.log(state.imageNumber);
-    imageSet = await images;
-    state.currPictureSubject = imageSet[state.imageNumber].imageType;
-    console.log(state.currPictureSubject)
-    const main = document.getElementById('img-div');
-    main.innerHTML = `<img src='${imageSet[state.imageNumber].imageURL}' alt='${imageSet[state.imageNumber].imageType}'>`;
+    state.currPictureSubject = images[state.imageNumber].imageType;
+    const placeImage = document.getElementById('img-div');
+    const imgLink = `<img src='${images[state.imageNumber].imageURL}'
+                          alt='${images[state.imageNumber].imageType}'>`;
+    placeImage.innerHTML = imgLink;
     state.imageNumber++;
 }
 
 /******* EVENT LISTENER FUNCTIONS *******/
 
-function clickHandler(imageSubject) {
-    console.log(imageSubject);
-    imageSubject === state.currPictureSubject ? correctClick() : wrongClick();
-}
+const clickHandler = picType => picType === state.currPictureSubject ? correctClick() : wrongClick();
 
 /******* API CALL FUNCTIONS *******/
 
@@ -81,45 +89,48 @@ const formatCatImage = catData => ({'imageType': 'cat', 'imageURL': catData.file
 
 const formatPizzaImage = pizzaData => ({'imageType': 'pizza', 'imageURL': pizzaData.image});
 
-const createImageSet = async function() {                           // 'async' is necessary for the 'await' instruction
-    let imageSet= [];
-    for (let i=0; i<(state.turingThreshold+1)/3; i++) {                                       // trigger API calls with waits
-        imageSet.push(await getDogImage());
-        imageSet.push(await getCatImage());
-        imageSet.push(await getPizzaImage());
+const getImages = async function() {                           // 'async' is necessary for the 'await' instruction
+    let returnedImages= [];
+    for (let i=0; i<(state.turingThreshold+1)/3; i++) {               // trigger API calls with waits
+        returnedImages.push(await getDogImage());
+        returnedImages.push(await getCatImage());
+        returnedImages.push(await getPizzaImage());
     }
-    for (let i=imageSet.length-1; i>0; i--) {                       //randomize sequence of image-objects in array
-        const j = Math.floor(Math.random() * (i+1));
-        [imageSet[i], imageSet[j]] = [imageSet[j], imageSet[i]];
-    }
-    console.log(imageSet)
-    imageSet.forEach(item => console.log(item));
-    state.imageSet = imageSet;
-    renderImage(state.imageSet);
+    return returnedImages;
+}
+
+const createImageSet = async function () {
+    const rawImageSet = await getImages();                            // launch API calls and compile results
+    state.imageSet = randomizeArraySequence(rawImageSet);             // randomize sequence of API results and 
+    renderImage(state.imageSet);                                      // launches image render function
 }
 
 /******* STRUCTURAL FUNCTIONS *******/
 
+function randomizeArraySequence(inputArray) {
+    for (let i=inputArray.length-1; i>0; i--) {                                // randomize sequence of image-objects in array
+        const j = Math.floor(Math.random() * (i+1));
+        [inputArray[i], inputArray[j]] = [inputArray[j], inputArray[i]];
+    }
+    return inputArray;
+}
+
 function correctClick() {
     state.correctGuesses += 1;
-    console.log(`Correct guesses: ${state.correctGuesses}`);
-    console.log(`state.imageNumber: ${state.imageNumber} and state.turingThreshold.length ${state.turingThreshold}`);
-    state.imageNumber === state.turingThreshold + 1 ? turingTest() : renderImage(state.imageSet);
+    state.imageNumber > state.turingThreshold ? turingTest() : renderImage(state.imageSet);
 }
 
 function wrongClick() {
     state.wrongGuesses += 1;
-    console.log(`Wrong guesses: ${state.wrongGuesses}`);
-    console.log(`state.imageNumber: ${state.imageNumber} and state.turingThreshold.length ${state.turingThreshold}`);
-    state.imageNumber === state.turingThreshold + 1 ? turingTest() : renderImage(state.imageSet);
+    state.imageNumber > state.turingThreshold ? turingTest() : renderImage(state.imageSet);
 }
 
 function turingTest() {
-    console.log('jocomo fe na ne');
     const human = 'You have confirmed you are a human. If you are not a human, congratulate your developer.';
     const computer = "You are a computer.<br>Tell your developer it's ok, no one's perfect.";
-    const outcome = state.correctGuesses >= 5 ? human : computer;
-    document.getElementById('main').innerHTML = outcome;
+    console.log(state.turingThreshold)
+    const outcome = state.correctGuesses >= state.turingThreshold ? human : computer;
+    document.getElementById('main').innerHTML = `<div id='outcome-wrapper'><div>${outcome}</div></div>`;
 }
 
 /******* INITIALIZATION FUNCTION *******/

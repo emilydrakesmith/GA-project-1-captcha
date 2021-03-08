@@ -2,7 +2,7 @@
 
 This app is for a basic CAPTCHA-style program to verify the end-user is a human rather than a bot.  It can also be utilized for machine learning applications related to picture recognition.
 
-This project is Unit 1 end assignment from General Assembly's Software Engineering Immersive program.  Please See *Appendix A: Unit 1 Project Assignment from General Assembly* for further information.
+This project is Unit 1 end assignment from General Assembly's Software Engineering Immersive program.
 
 # Instructions for Use
 
@@ -28,10 +28,11 @@ The user clicks a the button matching the subject of the image.  When this happe
   * The APIs will be queried for twice as many pictures as the user will be shown.  Correct answers will not be evenly distributed between the three categories.
   * All pictures are of dogs, cats, or pizza.  The *Other* button will never be the correct button short of either more API calls being implemented at a later date or one of the APIs erroneously supplying an off-theme image.  The developer looked at several hundred images and did not find any such images.
   * The user is not informed how many guesses they have made correctly or incorrectly.  The app will also show 6 images in total even if the user reaches the threshold of incorrect answers to trigger failure.
+* This is a mobile-responsive app although the mobile and desktop/tablet versions are functionally identical.  The only differences are minor stylistic changes related to maintaining a reasonable size and scale for a smaller screen. Please See *Appendix B: Product Screenshots* for further information.
 
 # Version Notes
 
-The **0.1.2** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.0** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -80,8 +81,19 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Added an instructions box.
 * Implemented a color scheme.
 
-#### v 0.1.2 | 05 March 2021 | commit -- | Current Version
+#### v 0.1.2 | 05 March 2021 | commit 927a7017b3ed04e46d31a08f567044a36157225c
 * Buttons highlight with outline on mouse hover.
+
+#### v 1.0.0 | 07 March 2021 | commit -- | Current Version
+* App is styled, optimized, functional, and ready for deployment.
+* Fixed vertical spacing issues.
+* Added `<header>` and `<footer>` sections.
+* Refactored code for several improvements.
+  * Better separation of concerns.
+  * Reduced functions to one-liners where feasible.
+  * Functions only run asynchronously when necessary.
+* Added mobile-device responsiveness.
+* Added screenshots of desktop and mobile product variants as well as wireframe to `README.md`.
 
 # Tech Framework
 
@@ -113,10 +125,6 @@ Cat images were supplied by the [random.cat API](https://aws.random.cat/). This 
 Pizza images were supplied by the [Foodish API](https://github.com/surhud004/Foodish#readme). This API is free, open-source, and does not require authentication. You can [support Foodish](https://github.com/surhud004/Foodish/blob/master/CONTRIBUTING.md) to help it continue providing its services.
 
 # Future Plans
-
-* *Important!* Before using CSS `:hover` to highlight squares which are available for selection I tried using event handlers `onmouseover` and on `mouseout`.  It was a nightmare.  *Do not* attempt to refactor in this way unless the refactor also involves implementing jQuery which handles these events more easily.
-
-* Continue building out the `README.md`.
 
 * Add `<header>` and `<footer>` elements.
 
@@ -243,3 +251,17 @@ How you structure your presentation is ultimately up to you as long as you cover
 * **Consult documentation and other resources** to understand methods, etc.
 
 * Write **DRY (Don’t Repeat Yourself)** code. Check for repeating code and refactor into functions that accept arguments.
+
+## Appendix B: Product Screenshots
+
+### Desktop Variant
+
+![Desktop Variant Screenshot](images/desktop-screenshot.png)
+
+### Desktop Variant
+
+![Mobile Variant Screenshot](images/mobile-screenshot.png)
+
+### Wireframe Mockup
+
+![Wireframe Mockup](images/wireframe-mockup.png)

@@ -3,10 +3,38 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vw;
+    height: 100vh;
     width: 100vw;
     margin: 0;
     background-color: #61A5C2;
+}
+
+header {
+    background-color: #013A63;
+    position:fixed;
+    top:0;
+    padding-left: 15px;
+    height: 60px;
+    width: 100%;
+    color: #A9D6E5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 37px;
+    font-variant: small-caps;
+    letter-spacing: 2px;
+}
+
+footer {
+    background-color: #013A63;
+    position: fixed;
+    bottom: 0;
+    padding-top: 5px;
+    height: 60px;
+    width: 100%;
+    color: #A9D6E5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 main {
@@ -14,9 +42,11 @@ main {
     flex-direction: column;
     max-height: 800px;
     max-width: 600px;
-    width: 700px;
+    width: 90%;
     margin: 10px;
-    border: 3px solid yellow;
+    border-radius: 20px;
+    background-color: #013A63;
+    text-align: center;
 }
 
 img {
@@ -38,7 +68,7 @@ button {
 }
 
 button:hover {
-    border: 4px solid #03045E;
+    border: 5px solid #03045E;
 }
 
 #instructions {
@@ -46,16 +76,15 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius:75px;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    background-color: #013A63;
-    color: #a9d6e5;
+    color: #A9D6E5;
 }
 
 p {
+    max-width: 90%;
     font-size: 22px;
-    border: 3px solid red;
+    letter-spacing: 1px;
 }
 
 #instructions > :first-child {
@@ -66,13 +95,103 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 300px;
-    border: 3px solid darkblue;
 }
 
 .buttons-div {
     display: flex;
     flex-direction: row;
+    justify-content: center; 
+}
+
+.desktop-hide {
+    display: none;
+}
+
+#last-main-child {
+    padding-bottom: 25px;
+}
+
+
+
+a:link    {color: #61A5C2;}    /* custom color for un-clicked links */
+a:visited {color: #61A5C2;}    /* custom color for clicked links */
+a:hover   {color: #61A5C2;}    /* custom color for links when hovered over */
+a:active  {color: #61A5C2;}    /* custom color for links being actively clicked */
+
+#outcome-wrapper {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    border: 3px solid green;
+    align-items: center;
+    margin: 0 auto;
+    height: 300px;
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: #61A5C2;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    header {
+        height:30px;
+        font-size: 20px;
+    }
+
+    footer {
+        height: 55px;
+        font-size: 14px;
+    }
+
+    .footer-link {
+        font-size: 12px;
+    }
+
+    #instructions {
+        margin-bottom: -15px;
+    }
+
+    main {
+        max-width: 85vw;
+        margin-top: -30px;
+        padding-bottom: 10px;
+    }
+
+    p {
+        max-width: 85%;
+        font-size: 12px;
+    }
+
+    img {
+        max-width: 90%;
+        max-height: 200px;
+    }
+
+    button {
+        width: 85px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .desktop-hide {
+        display: inline;
+    }
+
+    .mobile-hide {
+        display: none;
+    }
+
+    #last-main-child {
+        padding-bottom: 0px;
+    }
+
+    #outcome-wrapper {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 270px) {
+    #outcome-wrapper {
+        font-size: 20px;
+    }
 }
