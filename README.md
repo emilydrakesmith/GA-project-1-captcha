@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.7** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.8** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -117,8 +117,12 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Created alt-text for images in the `README.md` file.
 * Added a favicon.
 
-#### v 1.0.7 | 10 March 2021 | commit -- | Current Version
+#### v 1.0.7 | 10 March 2021 | commit a933bfe01466519a606203b55f5165b345a458b3
 * Fixed formatting issue with alt-text in `README.md` images.
+
+#### v 1.0.8 | 10 March 2021 | commit -- | Current Version
+* Fixed spelling and grammatical errors in the `README.md` file I'd somehow missed.
+* Fixed script compiling error in HTML `<head>` related to favicons.
 
 # Tech Framework
 
@@ -167,13 +171,15 @@ If you'd like to learn more about the developer, please visit [my website](https
 
 * Instructors and peers from the General Assembly SEIR-EC-2-22 cohort for collaboration in developing this app. While this app represents my own original work we gave each other assistance in developing our own versions thereof.
 
-* All the APIs used in this app were found through [public-apis](https://github.com/public-apis/public-apis), published by the [Public APIs Project](https://github.com/public-apis).  All the APIs are free, open source, and do not require authentication.  Please refer to the 
+* All the APIs used in this app were found through [public-apis](https://github.com/public-apis/public-apis), published by the [Public APIs Project](https://github.com/public-apis).  All the APIs are free, open source, and do not require authentication.  Please refer to the *APIs* section of this file for more information on each.
 
 * Formatting this `README.md` file was easy with the help of the [Markdown Live Preview](https://markdownlivepreview.com/) tool and GitHub Guide's [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) page.
 
 * I found the font [Poppins](https://fonts.google.com/specimen/Poppins) through [Google Fonts](https://fonts.google.com/).  It was created by [Jonny Pinhorn](https://github.com/jonpinhorn) and the [Indian Type Foundry](https://www.indiantypefoundry.com/) and made available for use through the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
 * The color palette was developed with the help of [Coolors.co](https://coolors.co/) and tested for accessibility with [Color Safe](http://colorsafe.co/).
+
+* Deploying this app was made easy by [surge.sh](https://surge.sh/) with a free version adequate for my needs.
 
 * I used [Whimsical](https://whimsical.com/wireframes) to generate the wireframe images seen in *Appendix B: Product Screenshots & Images*.
 
