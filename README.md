@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.3** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.5** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -102,9 +102,14 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Refactored `getImages()` to run with a `do...while` loop instead of a `for` loop. The `while` condition runs API queries a number of times relative to `state.turingThreshold`.  This will increase stability by reducing the chance someone else forks and uses the app and changes values to produce an insufficient number of images compared to `state.turingThreshold` for the app to work.
 * Refactored user-interactable elements (all `<a>` elements and hyperlinks) out of template HTML and into variables.  Variables are then injected into HTML template literals.
 
-#### v 1.0.3 | 08 March 2021 | commit 6f65db8b4cc8b2c1af366432fcc70c6d927048a3 | Current Version
+#### v 1.0.3 | 08 March 2021 | commit 6f65db8b4cc8b2c1af366432fcc70c6d927048a3
 * Removed `console.log()` statements and other testing/validation code.
+
+#### v 1.0.4 | 10 March 2021 | commit 117e93a97ee292428ca3847cc0c69f6ac8ab1080
 * Deployed app to surge and updated `README.md` with a link.
+
+#### v 1.0.5 | 10 March 2021 | commit -- | Current Version
+* Fixed errata in *Version Notes* in `README.md` file.
 
 # Tech Framework
 
