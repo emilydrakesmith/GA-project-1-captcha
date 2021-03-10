@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.6** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.7** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -111,11 +111,14 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 #### v 1.0.5 | 10 March 2021 | commit 0a066d611504114851c65f06b636ab1f10c12faf
 * Fixed errata in *Version Notes* in `README.md` file.
 
-#### v 1.0.6 | 10 March 2021 | commit -- | Current Version
+#### v 1.0.6 | 10 March 2021 | commit 395b6e45f01c6d436f4847d81716e49fcbda7fa8
 * Made a document title to the `index.html` file `<head>` section.
 * Added TODOs in the `README.md` file.
 * Created alt-text for images in the `README.md` file.
 * Added a favicon.
+
+#### v 1.0.7 | 10 March 2021 | commit -- | Current Version
+* Fixed formatting issue with alt-text in `README.md` images.
 
 # Tech Framework
 
@@ -282,11 +285,11 @@ How you structure your presentation is ultimately up to you as long as you cover
 
 ### Desktop Variant
 
-![Desktop Variant Screenshot](images/desktop-screenshot.png 'screenshot of app's desktop variant')
+![Desktop Variant Screenshot](images/desktop-screenshot.png 'screenshot of app desktop variant')
 
 ### Mobile Variant
 
-![Mobile Variant Screenshot](images/mobile-screenshot.png 'screenshot of app's mobile variant')
+![Mobile Variant Screenshot](images/mobile-screenshot.png 'screenshot of app mobile variant')
 
 ### Wireframe Mockup
 
