@@ -13,12 +13,14 @@ const state = {
 
 function renderInitialContainers() {
     const body = document.getElementById('body');
+   
     const dogButton = `<button id='dog-button' onclick='clickHandler("dog")'>Dog</button>`;
     const catButton = `<button id='cat-button' onclick='clickHandler("cat")'>Cat</button>`;
     const pizzaButton = `<button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>`;
     const otherButton = `<button id='other-button' onclick='clickHandler("other")'>Other</button>`;
     const githubLink = `<a href='https://github.com/mhsmith321/GA-project-1-captcha' target='_blank'>GitHub Repo</a>`;
     const developerWebpageLink = `<a href='https://martysmith.tech/' target='_blank'>About the Developer</a>`;
+    
     body.innerHTML =   `<header id='header'>
                             <span class='mobile-hide'>User Verification System</span>
                             <span class='desktop-hide'>User Verification</span>

@@ -15,7 +15,7 @@ The user starts on a page with a random picture of either a dog, a car, or pizza
 3. Pizza
 4. Other
 
-The user clicks a the button matching the subject of the image.  When this happens the image will be shown a new image which and repeat the process.  After the user attempts to identify the subject of six images they'll be given a report based on their success.
+The user clicks a the button matching the subject of the image.  When this happens the image will be shown a new image and repeat the process.  After the user attempts to identify the subject of six images they'll be given a report based on their success.
 
 **Success**  If the user successfully identifies the subject in at least 5 of the 6 images they'll be congratulated as either a human or a computer program developed by an engineer with strong skills in machine learning.
 
@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.2** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.3** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -102,8 +102,9 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Refactored `getImages()` to run with a `do...while` loop instead of a `for` loop. The `while` condition runs API queries a number of times relative to `state.turingThreshold`.  This will increase stability by reducing the chance someone else forks and uses the app and changes values to produce an insufficient number of images compared to `state.turingThreshold` for the app to work.
 * Refactored user-interactable elements (all `<a>` elements and hyperlinks) out of template HTML and into variables.  Variables are then injected into HTML template literals.
 
-#### v 1.0.2 | 08 March 2021 | commit -- | Current Version
+#### v 1.0.3 | 08 March 2021 | commit 6f65db8b4cc8b2c1af366432fcc70c6d927048a3 | Current Version
 * Removed `console.log()` statements and other testing/validation code.
+* Deployed app to surge and updated `README.md` with a link.
 
 # Tech Framework
 
@@ -122,6 +123,7 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 ### This app is hosted at:
 * [GitHub Repo](https://github.com/mhsmith321/GA-project-1-captcha)
 * [GitHub Hosted Site](https://mhsmith321.github.io/GA-project-1-captcha/)
+* [Surge.sh Hosted Site](http://mhs-captcha-app.surge.sh/)
 
 # APIs
 
