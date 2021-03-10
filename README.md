@@ -32,7 +32,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.0.5** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.0.6** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -108,8 +108,14 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 #### v 1.0.4 | 10 March 2021 | commit 117e93a97ee292428ca3847cc0c69f6ac8ab1080
 * Deployed app to surge and updated `README.md` with a link.
 
-#### v 1.0.5 | 10 March 2021 | commit -- | Current Version
+#### v 1.0.5 | 10 March 2021 | commit 0a066d611504114851c65f06b636ab1f10c12faf
 * Fixed errata in *Version Notes* in `README.md` file.
+
+#### v 1.0.6 | 10 March 2021 | commit -- | Current Version
+* Made a document title to the `index.html` file `<head>` section.
+* Added TODOs in the `README.md` file.
+* Created alt-text for images in the `README.md` file.
+* Added a favicon.
 
 # Tech Framework
 
@@ -144,6 +150,7 @@ Pizza images were supplied by the [Foodish API](https://github.com/surhud004/Foo
 # Future Plans
 
 * Refactor the code to exist entirely within JSON to increase modularity.
+* Make the title in the `<header>` section into a clickable hyperlink to re-initialize the app.
 
 # Contribute
 
@@ -159,13 +166,15 @@ If you'd like to learn more about the developer, please visit [my website](https
 
 * All the APIs used in this app were found through [public-apis](https://github.com/public-apis/public-apis), published by the [Public APIs Project](https://github.com/public-apis).  All the APIs are free, open source, and do not require authentication.  Please refer to the 
 
-* Formatting this `README.md` file was easy with the help of the [Markdown Live Preview](https://markdownlivepreview.com/) tool.
+* Formatting this `README.md` file was easy with the help of the [Markdown Live Preview](https://markdownlivepreview.com/) tool and GitHub Guide's [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) page.
 
 * I found the font [Poppins](https://fonts.google.com/specimen/Poppins) through [Google Fonts](https://fonts.google.com/).  It was created by [Jonny Pinhorn](https://github.com/jonpinhorn) and the [Indian Type Foundry](https://www.indiantypefoundry.com/) and made available for use through the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
 * The color palette was developed with the help of [Coolors.co](https://coolors.co/) and tested for accessibility with [Color Safe](http://colorsafe.co/).
 
 * I used [Whimsical](https://whimsical.com/wireframes) to generate the wireframe images seen in *Appendix B: Product Screenshots & Images*.
+
+* The favicon was generated with the help of [favicon.io](https://favicon.io/favicon-generator/), a free utility developed by [John Sorrentino](https://www.buymeacoffee.com/johnsorrentino).  You can [click here](https://www.buymeacoffee.com/johnsorrentino) to support him.
 
 # Appendices
 
@@ -273,12 +282,12 @@ How you structure your presentation is ultimately up to you as long as you cover
 
 ### Desktop Variant
 
-![Desktop Variant Screenshot](images/desktop-screenshot.png)
+![Desktop Variant Screenshot](images/desktop-screenshot.png 'screenshot of app's desktop variant')
 
 ### Mobile Variant
 
-![Mobile Variant Screenshot](images/mobile-screenshot.png)
+![Mobile Variant Screenshot](images/mobile-screenshot.png 'screenshot of app's mobile variant')
 
 ### Wireframe Mockup
 
-![Wireframe Mockup](images/wireframe-mockup.png)
+![Wireframe Mockup](images/wireframe-mockup.png 'pre-development wireframe mockup of app')

@@ -98,7 +98,7 @@ const getImages = async function() {                           // 'async' is nec
         returnedImages.push(await getDogImage());
         returnedImages.push(await getCatImage());
         returnedImages.push(await getPizzaImage());
-    } while (returnedImages.length<state.turingThreshold*2)
+    } while (returnedImages.length<state.turingThreshold*2);
     return returnedImages;
 }
 
