@@ -1,10 +1,28 @@
 # Introduction
 
-This app is for a basic CAPTCHA-style program to verify the end-user is a human rather than a bot.  It can also be utilized for machine learning applications related to picture recognition.
+This app, *User Verification System*, is a basic CAPTCHA-style program to verify the end-user is a human rather than a bot.  It can also be utilized for machine learning applications related to picture recognition.
 
-This project is Unit 1 end assignment from General Assembly's Software Engineering Immersive program.
+This project is Unit 1 end assignment from General Assembly's Software Engineering Immersive program.  For more information on the specifications of the assignment please reference [Appendix A: Unit 1 Project Assignment from General Assembly](#appendix-a-assignment).
+
+# Table of Contents
+1. [Instructions for Use](#instructions-for-use)
+  1. [Methodology](#instructions-methodology)
+  1. [Usage Notes](#instructions-usage-notes)
+2. [Version Notes](#version-notes)
+3. [Tech Framework](#tech-framework)
+4. [APIs](#apis)
+5. [Future Plans](#future-plans)
+6. [Contribute](#contribute)
+7. [Special Thanks](#special-thanks)
+8. [Appendices](#appendices)
+   1. [Appendix A: Unit 1 Project Assignment from General Assembly](#appendix-a-assignment)
+   2. [Appendix B: Product Screenshots & Images](#appendix-b-pictures)
+
+<a id='instructions-for-use'></a>
 
 # Instructions for Use
+
+<a id='instructions-methodology'></a>
 
 ### Methodology
 
@@ -21,6 +39,8 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 **Failure**  If the user fails to successfully identify the subject in at least 5 of the 6 images they'll be informed they are likely a computer and console the engineer about its performance.
 
+<a id='instructions-usage-notes'></a>
+
 ### Usage Notes
 
 * A number of features in the program were implemented to prevent reasoned guessing at the subject of the image without being able to identify it visually.
@@ -28,11 +48,18 @@ The user clicks a the button matching the subject of the image.  When this happe
   * The APIs will be queried for twice as many pictures as the user will be shown.  Correct answers will not be evenly distributed between the three categories.
   * All pictures are of dogs, cats, or pizza.  The *Other* button will never be the correct button short of either more API calls being implemented at a later date or one of the APIs erroneously supplying an off-theme image.  The developer looked at several hundred images and did not find any such images.
   * The user is not informed how many guesses they have made correctly or incorrectly.  The app will also show 6 images in total even if the user reaches the threshold of incorrect answers to trigger failure.
-* This is a mobile-responsive app although the mobile and desktop/tablet versions are functionally identical.  The only differences are minor stylistic changes related to maintaining a reasonable size and scale for a smaller screen. Please See *Appendix B: Product Screenshots* for further information.
+* This is a mobile-responsive app although the mobile and desktop/tablet variants are functionally identical.  The only differences are minor stylistic changes related to maintaining a reasonable size and scale for a smaller screen. Please reference [Appendix B: Product Screenshots & Images](#appendix-b-pictures) for further information.
+* The number of pictures the user must correctly identify to be verified as a human as well as the total number of pictures the user is shown by the app can both be easily modulated.
+  * Change the value of `state.turingThreshold` to positive integer to adjust how many correct guesses the user needs to log to be judged human.
+  * Change the value of `state.maxWrong` to any positive integer to adjust how many wrong guesses the user will be allowed to make and still pass the verification test.
+  * These two values are the bedrock values that the app uses to function.  So long as both numbers are positive integers the code will adjust to them.  If someone forks this repo and uses the app as a module in their project they don't need to worry about entering incompatible values that cause to crash or needing to make other adjustments to the code.
+* Clicking the app title *User Verification System* will re-initialize the app while reseting necessary values in `state` to their initial values where necessary.
+
+<a id='version-notes'></a>
 
 # Version Notes
 
-The **1.0.8** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.1.0** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -120,9 +147,18 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 #### v 1.0.7 | 10 March 2021 | commit a933bfe01466519a606203b55f5165b345a458b3
 * Fixed formatting issue with alt-text in `README.md` images.
 
-#### v 1.0.8 | 10 March 2021 | commit -- | Current Version
+#### v 1.0.8 | 10 March 2021 | commit 30f7345823441fe1721f97a1797e5f4d75218510
 * Fixed spelling and grammatical errors in the `README.md` file I'd somehow missed.
 * Fixed script compiling error in HTML `<head>` related to favicons.
+
+#### v 1.1.0 | 11 March 2021 | commit -- | Current Version
+* Reorganized file structure holding images.  Only affects images in the  `README.md`, updated filepaths where they're linked.
+* Added a Table of Contents and internal hyperlinking to `README.md`.
+* Refactored app to make the total number of allowable incorrect guesses easier to modulate.
+* Moved HTML template generation out of `turingTest()` and into a dedicated function `renderTestResult()`.
+* Clicking the app title in the `<header>` element re-initializes the app and resets `state` values as necessary.
+
+<a id='tech-framework'></a>
 
 # Tech Framework
 
@@ -143,6 +179,8 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * [GitHub Hosted Site](https://mhsmith321.github.io/GA-project-1-captcha/)
 * [Surge.sh Hosted Site](http://mhs-captcha-app.surge.sh/)
 
+<a id='apis'></a>
+
 # APIs
 
 ### Dog API
@@ -154,10 +192,17 @@ Cat images were supplied by the [random.cat API](https://aws.random.cat/). This 
 ### Foodish API
 Pizza images were supplied by the [Foodish API](https://github.com/surhud004/Foodish#readme). This API is free, open-source, and does not require authentication. You can [support Foodish](https://github.com/surhud004/Foodish/blob/master/CONTRIBUTING.md) to help it continue providing its services.
 
+<a id='future-plans'></a>
+
 # Future Plans
 
 * Refactor the code to exist entirely within JSON to increase modularity.
+* Incorporate more subject-specific picture APIs to increase validity of the **Other** button.
 * Make the title in the `<header>` section into a clickable hyperlink to re-initialize the app.
+* Eliminate `state.currPictureSubject` by having `clickHandler()` look directly in the picture's metadata rather than holding the current image's type in state.
+* Refactor app to decide number and types of images and then query APIs rather than to query APIs and choose pictures from returns.  This will reduce the number of API calls and decrease initial loading time.
+
+<a id='contribute'></a>
 
 # Contribute
 
@@ -166,6 +211,8 @@ Although I'm always interested in meeting new collaborators I prefer to keep thi
 I'm happy to let anyone reuse my code so long as you contact me for advance permission and give attribution where appropriate.  Some materials are specified in this README as proprietary material from General Assembly and should only be used with the direct permission of General Assembly.
 
 If you'd like to learn more about the developer, please visit [my website](https://martysmith.tech/) and [my GitHub](https://github.com/mhsmith321).
+
+<a id='special-thanks'></a>
 
 # Special Thanks
 
@@ -181,11 +228,15 @@ If you'd like to learn more about the developer, please visit [my website](https
 
 * Deploying this app was made easy by [surge.sh](https://surge.sh/) with a free version adequate for my needs.
 
-* I used [Whimsical](https://whimsical.com/wireframes) to generate the wireframe images seen in *Appendix B: Product Screenshots & Images*.
+* I used [Whimsical](https://whimsical.com/wireframes) to generate the wireframe images seen in [Appendix B: Product Screenshots & Images](#appendix-b-pictures).
 
 * The favicon was generated with the help of [favicon.io](https://favicon.io/favicon-generator/), a free utility developed by [John Sorrentino](https://www.buymeacoffee.com/johnsorrentino).  You can [click here](https://www.buymeacoffee.com/johnsorrentino) to support him.
 
+<a id='appendices'></a>
+
 # Appendices
+
+<a id='appendix-a-assignment'></a>
 
 ## Appendix A: Unit 1 Project Assignment from General Assembly
 
@@ -287,16 +338,18 @@ How you structure your presentation is ultimately up to you as long as you cover
 
 * Write **DRY (Don’t Repeat Yourself)** code. Check for repeating code and refactor into functions that accept arguments.
 
+<a id='appendix-b-pictures'></a>
+
 ## Appendix B: Product Screenshots & Images
 
 ### Desktop Variant
 
-![Desktop Variant Screenshot](images/desktop-screenshot.png 'screenshot of app desktop variant')
+![Desktop Variant Screenshot](images/README-images/desktop-screenshot.png 'screenshot of app desktop variant')
 
 ### Mobile Variant
 
-![Mobile Variant Screenshot](images/mobile-screenshot.png 'screenshot of app mobile variant')
+![Mobile Variant Screenshot](images/README-images/mobile-screenshot.png 'screenshot of app mobile variant')
 
 ### Wireframe Mockup
 
-![Wireframe Mockup](images/wireframe-mockup.png 'pre-development wireframe mockup of app')
+![Wireframe Mockup](images/README-images/wireframe-mockup.png 'pre-development wireframe mockup of app')
