@@ -146,7 +146,6 @@ function randomizeArraySequence(inputArray) {
 // logs a correct guess by the user, launches output page if enough pictures have been shown
 function correctClick() {
     state.correctGuesses += 1;
-    console.log(state.correctGuesses);
     state.imageNumber >= state.turingThreshold + state.maxWrong ? turingTest() : renderImage(state.imageSet);
 }
 

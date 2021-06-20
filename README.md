@@ -1,13 +1,15 @@
 # Introduction
 
-This app, *User Verification System*, is a basic CAPTCHA-style program to verify the end-user is a human rather than a bot.  It can also be utilized for machine learning applications related to picture recognition.
+This app, *User Verification System*, is a basic CAPTCHA-style program to verify the end-user is a human rather than a bot.  It can also be utilized for machine learning applications related to picture recognition.  [Click here to launch the app!](http://mhs-captcha-app.surge.sh/)
 
 This project is Unit 1 end assignment from General Assembly's Software Engineering Immersive program.  For more information on the specifications of the assignment please reference [Appendix A: Unit 1 Project Assignment from General Assembly](#appendix-a-assignment).
 
+Click [here](http://mhs-captcha-app.surge.sh/) to see the currently deployment version of this app.
+
 # Table of Contents
 1. [Instructions for Use](#instructions-for-use)
-  1. [Methodology](#instructions-methodology)
-  1. [Usage Notes](#instructions-usage-notes)
+   1. [Methodology](#instructions-methodology)
+   2. [Usage Notes](#instructions-usage-notes)
 2. [Version Notes](#version-notes)
 3. [Tech Framework](#tech-framework)
 4. [APIs](#apis)
@@ -49,17 +51,18 @@ The user clicks a the button matching the subject of the image.  When this happe
   * All pictures are of dogs, cats, or pizza.  The *Other* button will never be the correct button short of either more API calls being implemented at a later date or one of the APIs erroneously supplying an off-theme image.  The developer looked at several hundred images and did not find any such images.
   * The user is not informed how many guesses they have made correctly or incorrectly.  The app will also show 6 images in total even if the user reaches the threshold of incorrect answers to trigger failure.
 * This is a mobile-responsive app although the mobile and desktop/tablet variants are functionally identical.  The only differences are minor stylistic changes related to maintaining a reasonable size and scale for a smaller screen. Please reference [Appendix B: Product Screenshots & Images](#appendix-b-pictures) for further information.
-* The number of pictures the user must correctly identify to be verified as a human as well as the total number of pictures the user is shown by the app can both be easily modulated.
+* The event listener for button clicks has a different argument hard-coded into each place it's called in the template HTML.  This argument is compared to metadata in each image JSON to determine whether the correct button was clicked.
+* The number of pictures the user must correctly identify to be verified as a human as well as the total number of pictures the user is shown by the app can both be modulated easily.
   * Change the value of `state.turingThreshold` to positive integer to adjust how many correct guesses the user needs to log to be judged human.
   * Change the value of `state.maxWrong` to any positive integer to adjust how many wrong guesses the user will be allowed to make and still pass the verification test.
   * These two values are the bedrock values that the app uses to function.  So long as both numbers are positive integers the code will adjust to them.  If someone forks this repo and uses the app as a module in their project they don't need to worry about entering incompatible values that cause to crash or needing to make other adjustments to the code.
-* Clicking the app title *User Verification System* will re-initialize the app while reseting necessary values in `state` to their initial values where necessary.
+* Clicking the app title *User Verification System* will re-initialize the app while resetting necessary values in `state` to their initial values where necessary.
 
 <a id='version-notes'></a>
 
 # Version Notes
 
-The **1.1.0** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.1.1** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -151,12 +154,16 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Fixed spelling and grammatical errors in the `README.md` file I'd somehow missed.
 * Fixed script compiling error in HTML `<head>` related to favicons.
 
-#### v 1.1.0 | 11 March 2021 | commit -- | Current Version
+#### v 1.1.0 | 11 March 2021 | commit 0ae5f1909a5b35b04a19498d835196d5f4c3a779
 * Reorganized file structure holding images.  Only affects images in the  `README.md`, updated filepaths where they're linked.
 * Added a Table of Contents and internal hyperlinking to `README.md`.
 * Refactored app to make the total number of allowable incorrect guesses easier to modulate.
 * Moved HTML template generation out of `turingTest()` and into a dedicated function `renderTestResult()`.
 * Clicking the app title in the `<header>` element re-initializes the app and resets `state` values as necessary.
+
+#### v 1.1.1 | 20 June 2021 | commit -- | Current Version
+* Fixed formatting error in `README.md` *Table of Contents*.
+* Added a link to the `surge.sh` hosted site in the `README.md` *Introduction*.
 
 <a id='tech-framework'></a>
 
@@ -197,10 +204,11 @@ Pizza images were supplied by the [Foodish API](https://github.com/surhud004/Foo
 # Future Plans
 
 * Refactor the code to exist entirely within JSON to increase modularity.
+   * Compartmentalize `<header>` and `<footer>` elements so that they're easier to remove if incorporating the app as a module in a larger project.
 * Incorporate more subject-specific picture APIs to increase validity of the **Other** button.
-* Make the title in the `<header>` section into a clickable hyperlink to re-initialize the app.
 * Eliminate `state.currPictureSubject` by having `clickHandler()` look directly in the picture's metadata rather than holding the current image's type in state.
 * Refactor app to decide number and types of images and then query APIs rather than to query APIs and choose pictures from returns.  This will reduce the number of API calls and decrease initial loading time.
+* Refactor the app to process API calls and other processes on the back end so that the user cannot access metadata used for verification in the front end.
 
 <a id='contribute'></a>
 
