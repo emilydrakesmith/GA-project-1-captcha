@@ -23,8 +23,8 @@ function renderInitialContainers() {
     const catButton = `<button id='cat-button' onclick='clickHandler("cat")'>Cat</button>`;
     const pizzaButton = `<button id='pizza-button' onclick='clickHandler("pizza")'>Pizza</button>`;
     const otherButton = `<button id='other-button' onclick='clickHandler("other")'>Other</button>`;
-    const githubLink = `<a href='https://github.com/mhsmith321/GA-project-1-captcha' target='_blank'>GitHub Repo</a>`;
-    const developerWebpageLink = `<a href='https://martysmith.tech/' target='_blank'>About the Developer</a>`;
+    const githubLink = `<a href='https://github.com/emilydrakesmith/GA-project-1-captcha' target='_blank'>GitHub Repo</a>`;
+    const developerWebpageLink = `<a href='https://www.emilysmith.tech/' target='_blank'>About the Developer</a>`;
     const masterTemplate = `<header id='header'>
                                 <span class='mobile-hide' onclick='resetApp()'><a>User Verification System</a></span>
                                 <span class='desktop-hide' onclick='resetApp()'><a>User Verification</a></span>
@@ -45,7 +45,7 @@ function renderInitialContainers() {
                                     </div>
                                 </main>
                             <footer id='footer'>
-                                <div>© Marty Smith</div>
+                                <div>© Emily Smith</div>
                                 <div>
                                     <span class='footer-link'>${githubLink}</span> | <span class='footer-link'>${developerWebpageLink}</span>
                                 </div>

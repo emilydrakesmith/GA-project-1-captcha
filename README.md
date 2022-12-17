@@ -62,7 +62,7 @@ The user clicks a the button matching the subject of the image.  When this happe
 
 # Version Notes
 
-The **1.1.1** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
+The **1.1.2** version of this app is currently uploaded.  In cases where I update the README without any updates to the website itself I do not update the version number or use branches for my work.  Each version number will lack a commit number until the next version is uploaded.  The current commit number is always added retroactively.  In general, for version number format X.Y.Z:
 
 * X: increases in this number represent a complete overhaul of some section of the website, source code, or UI
 * Y: increases in this number represent a major functional change/aesthetic change or addition to the app
@@ -161,7 +161,11 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * Moved HTML template generation out of `turingTest()` and into a dedicated function `renderTestResult()`.
 * Clicking the app title in the `<header>` element re-initializes the app and resets `state` values as necessary.
 
-#### v 1.1.1 | 20 June 2021 | commit -- | Current Version
+#### v 1.1.1 | 20 June 2021 | commit be02e034577c3e7c0fb4f3c844894e429ab5a238
+* Fixed formatting error in `README.md` *Table of Contents*.
+* Added a link to the `surge.sh` hosted site in the `README.md` *Introduction*.
+
+#### v 1.1.2 | [DATE] | commit -- | Current Version
 * Fixed formatting error in `README.md` *Table of Contents*.
 * Added a link to the `surge.sh` hosted site in the `README.md` *Introduction*.
 
@@ -182,8 +186,8 @@ Version 0.1.0 is the first version with the full range of intended functions suc
 * macOS Big Sur version 11.2.1, Apple M1 chip
 
 ### This app is hosted at:
-* [GitHub Repo](https://github.com/mhsmith321/GA-project-1-captcha)
-* [GitHub Hosted Site](https://mhsmith321.github.io/GA-project-1-captcha/)
+* [GitHub Repo](https://github.com/emilydrakesmith/GA-project-1-captcha)
+* [GitHub Hosted Site](https://emilydrakesmith.github.io/GA-project-1-captcha/)
 * [Surge.sh Hosted Site](http://mhs-captcha-app.surge.sh/)
 
 <a id='apis'></a>
@@ -218,7 +222,7 @@ Although I'm always interested in meeting new collaborators I prefer to keep thi
 
 I'm happy to let anyone reuse my code so long as you contact me for advance permission and give attribution where appropriate.  Some materials are specified in this README as proprietary material from General Assembly and should only be used with the direct permission of General Assembly.
 
-If you'd like to learn more about the developer, please visit [my website](https://martysmith.tech/) and [my GitHub](https://github.com/mhsmith321).
+If you'd like to learn more about the developer, please visit [my website](https://www.emilysmith.tech/) and [my GitHub](https://github.com/emilydrakesmith).
 
 <a id='special-thanks'></a>
 
